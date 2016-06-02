@@ -331,7 +331,6 @@ tlds = [
     '.click',
     '.wedding',
     '.sexy',
-    '.xyz',
     '.red',
     '.black',
     '.pics'
