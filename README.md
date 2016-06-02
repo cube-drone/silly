@@ -203,7 +203,7 @@ welp
 
 ### sometimes your data has tags. let's make tags.
 
-    tags = list(set([silly.noun() for x in range(0,10)]))
+    tags = list(set([silly.adjective() for x in range(0,10)]))
     # ['enormous', 'sly', 'juniper', 'rum', 'touchy', 'marine', 'polka', 'olive', 'sexy', 'sluggish']
 
 #### why is that wrapped in `list()` and `set()`
