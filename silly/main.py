@@ -7,11 +7,13 @@ import six
 
 inflectify = inflect.engine()
 
+
 def slugify(string):
     """
     This is not as good as a proper slugification function, but the input space is limited
     """
     return string.replace(" ", "-").replace("\n", "-").replace(".", "").replace(",", "").lower()
+
 
 people = [
     "I",
