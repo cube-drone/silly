@@ -171,9 +171,9 @@ Your mom will spin a blanket.
     silly.gender()
     # Awesome
 
-that's the only response it gives
+That's the only response it gives.
 
-welp
+Welp.
 
 ### maybe you need a company for something?
 
@@ -206,18 +206,17 @@ welp
     tags = list(set([silly.adjective() for x in range(0,10)]))
     # ['enormous', 'sly', 'juniper', 'rum', 'touchy', 'marine', 'polka', 'olive', 'sexy', 'sluggish']
 
-#### why is that wrapped in `list()` and `set()`
+#### why is that wrapped in `list()` and `set()`?
 
 That's a sneaky way to eliminate duplicates.
 
-
 ### that's it. that's all the things.
 
-YES. Now it is time for me to use your software.
+YES. Now it is time for you to use my library.
 
-### that's right. do it.
+### that's right. i will do it.
 
-I will.
+You do.
 
 #### i want to write a script to use it with the 'say' command on mac
 
