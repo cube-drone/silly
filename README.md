@@ -205,4 +205,8 @@ YES. Now it is time for me to use your software.
 
 I will.
 
+#### i want to write a script to use it with the 'say' command on mac
+
+You should do that it would be great.
+
 
