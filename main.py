@@ -1,11 +1,65 @@
 import datetime as _datetime
 import random
 
-import slugify
 import inflect
 import six
 
 inflectify = inflect.engine()
+
+def slugify(string):
+    """
+    This is not as good as a proper slugification function, but the input space is limited
+    """
+    return string.replace(" ", "-").replace("\n", "-").replace(".", "").replace(",", "").lower()
+
+letters = [
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    't',
+    'u',
+    'v',
+    'w',
+    'x',
+    'y',
+    'z'
+]
+
+
+people = [
+    "I",
+    "You",
+    "Nobody",
+    "The government",
+    "Everybody",
+    "The illuminati",
+    "God himself",
+    "The President of the United States",
+    "The world",
+    "The United Nations",
+    "The Oakland Raiders",
+    "Your dad",
+    "Your mom",
+    "The band 'Queen'",
+    "Customs & Immigration"
+]
+
 
 titles = [
     'captain',
@@ -41,6 +95,33 @@ titles = [
     'brother',
     'sister',
     'reverend',
+]
+
+streets = [
+    'street',
+    'boulevard',
+    'drive',
+    'block',
+    'place',
+    'boardwalk',
+]
+
+countries = [
+    'testonia',
+    'testasia',
+    'arztotzka',
+    'mordor',
+    'xanth',
+    'stankonia',
+    'strongbadia',
+    'westeros',
+    'qarth',
+    'gallifrey',
+    'tatooine',
+    'cybertron',
+    'aiur',
+    'lordaeron',
+    'yemen',
 ]
 
 adjectives = [
@@ -245,10 +326,51 @@ containers = [
     'box',
     'bunch',
     'bag',
+    'tub',
+    'tote',
+    'wad',
+]
+
+directions = [
+    "west",
+    "east",
+    "north",
+    "south",
+    "central",
+]
+
+city_suffixes = [
+    "ford",
+    "berg",
+    "shire",
+    "town",
+    "hall",
+    " city",
+    "sound",
+    "ton",
+]
+
+tlds = [
+    '.xyz',
+    '.blue',
+    '.org',
+    '.com',
+    '.net',
+    '.link',
+    '.click',
+    '.wedding',
+    '.sexy',
+    '.xyz',
+    '.red',
+    '.black',
+    '.pics'
 ]
 
 nouns = [
     'onion',
+    'chimp',
+    'blister',
+    'poop',
     'britches',
     'mystery',
     'boat'
@@ -275,11 +397,11 @@ nouns = [
     'face',
     'arm',
     'cheek',
+    'monkey',
     'shin',
     'button',
     'byte',
     'cabinet',
-    'vehicle',
     'canyon',
     'dance',
     'crayon',
@@ -411,6 +533,7 @@ verbs = [
 ]
 
 firstnames = [
+    'testy',
     'carl',
     'agatha',
     'agnes',
@@ -510,6 +633,7 @@ firstnames = [
     'walter',
 ]
 
+
 def slugify_argument(func):
     def wrapped(*args, **kwargs):
         if "slugify" in kwargs and kwargs['slugify']:
@@ -517,6 +641,7 @@ def slugify_argument(func):
         else:
             return func(*args, **kwargs)
     return wrapped
+
 
 def capitalize_argument(func):
     def wrapped(*args, **kwargs):
@@ -561,7 +686,16 @@ def datetime(past=True):
                                   minute=minute(),
                                   second=second())
     except ValueError:
-        return datetime(past)
+        return datetime(past=past)
+
+
+def letter():
+    return random.choice(letters)
+
+
+def number():
+    return random.randint(0,9)
+
 
 @slugify_argument
 @capitalize_argument
@@ -607,19 +741,6 @@ def firstname(*args, **kwargs):
 
 @slugify_argument
 @capitalize_argument
-def container(*args, **kwargs):
-    return random.choice(containers)
-
-
-@slugify_argument
-@capitalize_argument
-def numberwang(*args, **kwargs):
-    n = random.randint(2, 150)
-    return inflectify.number_to_words(n)
-
-
-@slugify_argument
-@capitalize_argument
 def lastname(*args, **kwargs):
     types = [
         "{noun}",
@@ -634,7 +755,7 @@ def lastname(*args, **kwargs):
         "{noun}{adjective}",
         "{noun}{firstname}",
         "{noun}{title}",
-        "{adjective}{title}"
+        "{adjective}{title}",
         "{adjective}-{noun}",
         "{adjective}-{plural}"
     ]
@@ -647,6 +768,38 @@ def lastname(*args, **kwargs):
                                        verb=verb(),
                                        firstname=firstname(),
                                        title=title())
+
+
+@slugify_argument
+@capitalize_argument
+def container(*args, **kwargs):
+    return random.choice(containers)
+
+
+@slugify_argument
+@capitalize_argument
+def numberwang(*args, **kwargs):
+    n = random.randint(2, 150)
+    return inflectify.number_to_words(n)
+
+
+@slugify_argument
+@capitalize_argument
+def direction(*args, **kwargs):
+    return random.choice(directions)
+
+
+@slugify_argument
+@capitalize_argument
+def city_suffix(*args, **kwargs):
+    return random.choice(city_suffixes)
+
+
+@slugify_argument
+@capitalize_argument
+def tld(*args, **kwargs):
+    return random.choice(tlds)
+
 
 
 @slugify_argument
@@ -684,10 +837,10 @@ def thing(*args, **kwargs):
             number_of_plurals(),
         ])
 
+
 @slugify_argument
 def a_thing(*args, **kwargs):
-    return thing(a=True, *args, **kwargs)
-
+    return thing(an=True, *args, **kwargs)
 
 
 @slugify_argument
@@ -707,26 +860,104 @@ def name(*args, **kwargs):
         return title() + " " + lastname()
 
 
+@slugify_argument
+@capitalize_argument
+def domain(*args, **kwargs):
+    words = random.choice([
+        noun(),
+        thing(),
+        adjective()+noun(),
+    ])
+    return slugify(words)+tld()
+
+
+def email(*args, **kwargs):
+    if 'name' in kwargs and kwargs['name']:
+        words = kwargs['name']
+    else:
+        words = random.choice([
+            noun(),
+            name(),
+            name()+"+spam",
+        ])
+    return slugify(words)+"@"+domain()
+
+
+def phone_number(*args, **kwargs):
+    return random.choice([
+        '555-{number}{other_number}{number}{other_number}',
+        '1-604-555-{number}{other_number}{number}{other_number}',
+        '864-70-555-{number}{other_number}{number}{other_number}'
+    ]).format(number=number(),
+              other_number=number())
+
+
 def sentence(*args, **kwargs):
     if 'name' in kwargs and kwargs['name']:
         nm = kwargs(name)
     elif random.choice([True, False, False]):
         nm = name(capitalize=True)
     else:
-        nm = random.choice(["I",
-                            "You",
-                            "Nobody",
-                            "The government",
-                            "Everybody",
-                            "The world",
-                            "Your mom"])
+        nm = random.choice(people)
 
-    return "{name} will {verb} {thing}.".format(name=nm,
-                                                   verb=verb(),
-                                                   thing=random.choice([thing(a=True), things()]))
+    def type_one():
+        return "{name} will {verb} {thing}.".format(name=nm,
+                                                    verb=verb(),
+                                                    thing=random.choice([a_thing(), things()]))
+
+    def type_two():
+        return "{city} is in {country}.".format(city=city(capitalize=True),
+                                                country=country(capitalize=True))
+
+    def type_three():
+        return "{name} can't wait to {verb} {thing} in {city}.".format(name=nm,
+                                                                      verb=verb(),
+                                                                      thing=a_thing(),
+                                                                      city=city(capitalize=True))
+
+    def type_four():
+        return "{name} will head to {company} to buy {thing}.".format(name=nm,
+                                                                     company=company(capitalize=True),
+                                                                     thing=a_thing())
+
+
+    def type_five():
+        return "{company} is the best company in {city}.".format(city=city(capitalize=True),
+                                                                 company=company(capitalize=True))
+
+    def type_six():
+        return "To get to {country}, you need to go to {city}, then drive {direction}.".format(
+            country=country(capitalize=True),
+            city=city(capitalize=True),
+            direction=direction())
+
+    def type_seven():
+        return "{name} needs {thing}, badly.".format(name=nm, thing=a_thing())
+
+    def type_eight():
+        return "{verb} {noun}!".format(verb=verb(capitalize=True), noun=noun())
+
+    return random.choice([type_one(),
+                          type_two(),
+                          type_three(),
+                          type_four(),
+                          type_five(),
+                          type_six(),
+                          type_seven(),
+                          type_eight()])
+
+
+def paragraph(length=10):
+    """
+    Produces a paragraph of text.
+    """
+    return " ".join([sentence() for x in range(0, length)])
 
 
 def markdown(length=10):
+    """
+    Produces a bunch of markdown text.
+    """
 
     def title_sentence():
         return "\n" + "#"*random.randint(1,5) + " " + sentence()
@@ -751,29 +982,135 @@ def markdown(length=10):
 @slugify_argument
 @capitalize_argument
 def gender(*args, **kwargs):
-    return "Stop putting gender in your databases. You're just wasting everybody's time."
+    return "Awesome"
 
 
 @slugify_argument
 @capitalize_argument
-def company_name(*args, **kwargs):
+def company(*args, **kwargs):
     return random.choice([
-        "faculty of Applied {noun}",
-       "{noun} studies",
+        "faculty of applied {noun}",
+        "{noun}{second_noun} studios",
+        "{noun}{noun}{noun} studios",
+        "{noun}shop",
         "{noun} studies department",
+        "the law offices of {lastname}, {noun}, and {other_lastname}",
+        "{country} ministry of {plural}",
+        "{city} municipal {noun} department",
+        "{city} plumbing",
         "department of {noun} studies",
         "{noun} management systems",
+        "{plural} r us",
         "inter{verb}",
+        "the {noun} warehouse",
+        "integrated {noun} and {second_noun}",
+        "the {noun} and {second_noun} pub",
+        "e-cyber{verb}",
+        "{adjective}soft",
+        "{domain} Inc.",
         "{thing} incorporated",
         "{noun}co",
-    ]).format(noun=noun(), verb=verb(), thing=thing())
+    ]).format(noun=noun(),
+              plural=plural(),
+              country=country(),
+              city=city(),
+              adjective=adjective(),
+              lastname=lastname(),
+              other_lastname=lastname(),
+              domain=domain(),
+              second_noun=noun(),
+              verb=verb(),
+              thing=thing())
+
+
+@slugify_argument
+@capitalize_argument
+def country(*args, **kwargs):
+    return random.choice([
+        "{country}",
+        "{direction} {country}"
+    ]).format(country=random.choice(countries),
+              direction=direction())
+
+
+@slugify_argument
+@capitalize_argument
+def city(*args, **kwargs):
+    return random.choice([
+        "{direction} {noun}{city_suffix}",
+        "{noun}{city_suffix}",
+        "{adjective}{noun}{city_suffix}",
+        "{plural}{city_suffix}",
+        "{adjective}{city_suffix}",
+        "liver{noun}",
+        "birming{noun}",
+        "{noun}{city_suffix} {direction}"
+    ]).format(direction=direction(),
+              adjective=adjective(),
+              plural=plural(),
+              city_suffix=city_suffix(),
+              noun=noun())
+
+
+@slugify_argument
+@capitalize_argument
+def postal_code(*args, **kwargs):
+    return random.choice([
+        "{letter}{number}{letter} {other_number}{other_letter}{other_number}",
+        "{number}{other_number}{number}{number}{other_number}",
+        "{number}{letter}{number}{other_number}{other_letter}"
+    ]).format(
+        number=number(),
+        other_number=number(),
+        letter=letter(),
+        other_letter=letter()
+    )
+
+
+
+@slugify_argument
+@capitalize_argument
+def street(*args, **kwargs):
+    return random.choice([
+        "{noun} {street_type}",
+        "{adjective}{verb} {street_type}",
+        "{direction} {adjective}{verb} {street_type}",
+        "{direction} {noun} {street_type}",
+        "{direction} {lastname} {street_type}",
+    ]).format(noun=noun(),
+              lastname=lastname(),
+              direction=direction(),
+              adjective=adjective(),
+              verb=verb(),
+              street_type=random.choice(streets))
 
 
 @slugify_argument
 @capitalize_argument
 def address(*args, **kwargs):
-    return ""
+    return random.choice([
+        "{number}{other_number}{number}{other_number} {street}",
+        "{number}{other_number} {street}",
+        "{numberwang} {street}",
+        "Apt {numberwang}, {number}{other_number}{other_number} {street}",
+        "Apt {number}{other_number}{number}, {numberwang} {street}",
+        "PO Box {number}{other_number}{number}{other_number}",
+    ]).format(number=number(),
+              other_number=number(),
+              numberwang=numberwang(),
+              street=street())
 
 
 if __name__ == '__main__':
-    print(company_name(capitalize=True))
+    nm = name(capitalize=True)
+    print(nm)
+    print(email(name=nm))
+    print(phone_number())
+    print("")
+    print(company(capitalize=True))
+    print(address(capitalize=True))
+    print(city(capitalize=True) + " " + postal_code(capitalize=True))
+    print(country(capitalize=True))
+    print("")
+    print(datetime().isoformat())
+    print(paragraph(length=4))
