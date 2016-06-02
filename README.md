@@ -1,5 +1,5 @@
 # silly
-A python library for producing fanciful test data. 
+A python library for producing fanciful test data.
 
 ## what for?
 
@@ -226,6 +226,4 @@ You should do that.  It would be great.
 
 ### i want to contribute to silly development
 
-It needs tests, tox, and travis before I'll be able to accept pull requests. Coming soon.
-
-Also if the pull request is insufficiently ridiculous it will be rejected outright.
+If your pull request is insufficiently ridiculous it will be rejected outright.
