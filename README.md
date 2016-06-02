@@ -177,25 +177,25 @@ welp
 
 ### maybe you need a company for something?
 
-    silly.company()
+    silly.company(capitalize=True)
     # Beefstapler Studios
-    silly.company()
+    silly.company(capitalize=True)
     # Qarth Ministry Of Cages
-    silly.company()
+    silly.company(capitalize=True)
     # Olivesoft
 
 ### you can generate a whole address, although all of the places are fictional
 
-    silly.address()
+    silly.address(capitalize=True)
     # Thirty-One West Key Block
     silly.address()
-    # Apt Twenty-Three, 922 South Code Drive
+    # apt twenty-three, 922 south code drive
     silly.country()
-    Stankonia
-    silly.city()
+    stankonia
+    silly.city(capitalize=True)
     Cloudston
-    silly.city()
-    Beefton South
+    silly.city(slugify=True)
+    beefton-south
     silly.postal_code()
     35335
     silly.postal_code()
