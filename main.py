@@ -887,11 +887,14 @@ def phone_number(*args, **kwargs):
     return random.choice([
         '555-{number}{other_number}{number}{other_number}',
         '1-604-555-{number}{other_number}{number}{other_number}',
-        '864-70-555-{number}{other_number}{number}{other_number}'
+        '864-70-555-{number}{other_number}{number}{other_number}',
+        '867-5309'
     ]).format(number=number(),
               other_number=number())
 
 
+@slugify_argument
+@capitalize_argument
 def sentence(*args, **kwargs):
     if 'name' in kwargs and kwargs['name']:
         nm = kwargs(name)
@@ -947,6 +950,8 @@ def sentence(*args, **kwargs):
                           type_eight()])
 
 
+@slugify_argument
+@capitalize_argument
 def paragraph(length=10):
     """
     Produces a paragraph of text.
@@ -960,10 +965,10 @@ def markdown(length=10):
     """
 
     def title_sentence():
-        return "\n" + "#"*random.randint(1,5) + " " + sentence()
+        return "\n" + "#"*random.randint(1,5) + " " + sentence(capitalize=True)
 
     def embellish(word):
-        return random.choice([word, word, "**"+word+"**", "_"+word+"_"])
+        return random.choice([word, word, word, "**"+word+"**", "_"+word+"_"])
 
     def randomly_markdownify(string):
         return " ".join([embellish(word) for word in string.split(" ")])
@@ -1103,14 +1108,16 @@ def address(*args, **kwargs):
 
 if __name__ == '__main__':
     nm = name(capitalize=True)
-    print(nm)
-    print(email(name=nm))
-    print(phone_number())
-    print("")
-    print(company(capitalize=True))
-    print(address(capitalize=True))
-    print(city(capitalize=True) + " " + postal_code(capitalize=True))
-    print(country(capitalize=True))
-    print("")
-    print(datetime().isoformat())
-    print(paragraph(length=4))
+    six.print_(nm)
+    six.print_(email(name=nm))
+    six.print_(phone_number())
+    six.print_("")
+    six.print_(company(capitalize=True))
+    six.print_(address(capitalize=True))
+    six.print_(city(capitalize=True) + " " + postal_code(capitalize=True))
+    six.print_(country(capitalize=True))
+    six.print_("")
+    six.print_(datetime().isoformat())
+    six.print_(paragraph(length=4))
+    six.print_("")
+    six.print_(markdown(length=10))
