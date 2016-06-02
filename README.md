@@ -21,6 +21,10 @@ you're probably going to want to look at [faker](https://github.com/joke2k/faker
 
 ## how I use?
 
+### first bring it in
+
+    import silly
+
 ### generate contact info
 
     name = silly.name()
@@ -207,7 +211,7 @@ I will.
 
 #### i want to write a script to use it with the 'say' command on mac
 
-You should do that it would be great.
+You should do that.  It would be great.
 
 ### i want to contribute to silly development
 
