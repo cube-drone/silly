@@ -112,6 +112,17 @@ Damn.
     silly.phone_number()
     # 555-6868
 
+### how about an image?
+
+    silly.image()
+    # http://dummyimage.com/800x600/292929/e3e3e3&text=mighty poop
+
+    silly.image(width=1000, height=60)
+    # http://placekitten.com/1000/60
+
+    silly.image(https=True, width=40, height=50)
+    # https://dummyimage.com/40x50/292929/e3e3e3&text=house
+
 ### i want a whole sentence!
 
     silly.sentence()

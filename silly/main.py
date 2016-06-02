@@ -1493,3 +1493,37 @@ def address(random=random, *args, **kwargs):
               street=street(random=random))
 
 
+def image(random=random, width=800, height=600, https=False, *args, **kwargs):
+    """
+    Generate the address of a placeholder image.
+
+    >>> mock_random.seed(0)
+    >>> image(random=mock_random)
+    'http://dummyimage.com/800x600/292929/e3e3e3&text=mighty poop'
+    >>> image(random=mock_random, width=60, height=60)
+    'http://placekitten.com/60/60'
+    >>> image(random=mock_random, width=1920, height=1080)
+    'http://dummyimage.com/1920x1080/292929/e3e3e3&text=To get to Westeros, you need to go to Britchestown, then drive west.'
+    >>> image(random=mock_random, https=True, width=1920, height=1080)
+    'https://dummyimage.com/1920x1080/292929/e3e3e3&text=East Mysteryhall is in Westeros.'
+
+    """
+    target_fn = noun
+
+    if width+height > 300:
+        target_fn = thing
+    if width+height > 2000:
+        target_fn = sentence
+
+    s = ""
+    if https:
+        s = "s"
+
+    if random.choice([True, False]):
+        return "http{s}://dummyimage.com/{width}x{height}/292929/e3e3e3&text={text}".format(
+                s=s,
+                width=width,
+                height=height,
+                text=target_fn(random=random))
+    else:
+        return "http{s}://placekitten.com/{width}/{height}".format(s=s, width=width, height=height)
