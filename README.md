@@ -35,7 +35,7 @@ you're probably going to want to look at [faker](https://github.com/joke2k/faker
     # you should not contact me at buttpike@chump-lol.xyz
 
 
-### capitalization & slugification
+### tell me about capitalization & slugification
 
     # this works on everything that it would make sense for it to work on
     #   for everything else it should fail silently
@@ -52,7 +52,7 @@ you're probably going to want to look at [faker](https://github.com/joke2k/faker
     year, month, day = silly.datetime().year, silly.datetime().month, silly.datetime().day
     # 1983, 12, 28
 
-### generate numbers
+### i want to generate numbers
 
     number = silly.number()
     print(number)
@@ -61,7 +61,7 @@ you're probably going to want to look at [faker](https://github.com/joke2k/faker
     print(number_in_words)
     # Eighty Eight
 
-### generate nouns and verbs and adjectives and plurals
+### i want to generate words
 
     silly.noun()
     # arm
@@ -72,7 +72,7 @@ you're probably going to want to look at [faker](https://github.com/joke2k/faker
     silly.plural()
     # kittens
 
-### generate past participle
+### i want to generate a past participle
 
     silly.past_participle()
     # Traceback (most recent call last):
@@ -81,7 +81,7 @@ you're probably going to want to look at [faker](https://github.com/joke2k/faker
 
 Damn.
 
-### or just generate a thing
+### how about i just generate a thing
 
     silly.thing()
     # bunch of hats
@@ -102,17 +102,17 @@ Damn.
     silly.things()
     # a bunch of hats, a tub of hams, and ninety jeans
 
-### a web domain
+### i need a web domain
 
     silly.domain()
     # pants.xyz
 
-### a phone number for some reason
+### i need a phone number for some reason
 
     silly.phone_number()
     # 555-6868
 
-### a whole sentence!
+### i want a whole sentence!
 
     silly.sentence()
     # Your dad will head to Integrated Harvest And Secret to buy a shell boat.
@@ -136,7 +136,7 @@ Damn.
     # is the best company in Coasttown. Your mom can't wait to punch
     # one hundred and thirty-seven brown socks in Jerkhall....
 
-### sometimes you need some markdown!
+### sometimes I need some markdown!
 
     silly.markdown()
     # ## The World Needs A Wad Of Pencils, Badly.
@@ -148,7 +148,7 @@ Damn.
     # The United Nations needs a garlic shin, badly.
     # The Cape Warehouse is the best company in Sweatershall.
 
-it generates markdown that looks like this:
+It generates markdown that looks like this:
 
 > ### To Get To South Testasia, You Need To Go To Jeansound, Then Drive North.
 >
@@ -175,7 +175,7 @@ That's the only response it gives.
 
 Welp.
 
-### maybe you need a company for something?
+### maybe I need a company for something?
 
     silly.company(capitalize=True)
     # Beefstapler Studios
@@ -184,7 +184,7 @@ Welp.
     silly.company(capitalize=True)
     # Olivesoft
 
-### you can generate a whole address, although all of the places are fictional
+### I can generate a whole address, although all of the places are fictional
 
     silly.address(capitalize=True)
     # Thirty-One West Key Block
@@ -201,7 +201,7 @@ Welp.
     silly.postal_code()
     K7K 3G3
 
-### sometimes your data has tags. let's make tags.
+### sometimes my data has tags. let's make tags.
 
     tags = list(set([silly.adjective() for x in range(0,10)]))
     # ['enormous', 'sly', 'juniper', 'rum', 'touchy', 'marine', 'polka', 'olive', 'sexy', 'sluggish']
@@ -210,9 +210,11 @@ Welp.
 
 That's a sneaky way to eliminate duplicates.
 
-### that's it. that's all the things.
+### is that it? is that all of the silly things?
 
-YES. Now it is time for you to use my library.
+YES. Well, there are some silly things that aren't totally covered in the docs,
+like `silly.direction()` or `silly.city_suffix()` but I didn't think that they
+ would be that useful.
 
 ### that's right. i will do it.
 
