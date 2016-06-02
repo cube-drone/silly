@@ -1,5 +1,6 @@
 import datetime as _datetime
 import random
+import string
 
 import inflect
 import six
@@ -11,36 +12,6 @@ def slugify(string):
     This is not as good as a proper slugification function, but the input space is limited
     """
     return string.replace(" ", "-").replace("\n", "-").replace(".", "").replace(",", "").lower()
-
-letters = [
-    'a',
-    'b',
-    'c',
-    'd',
-    'e',
-    'f',
-    'g',
-    'h',
-    'i',
-    'j',
-    'k',
-    'l',
-    'm',
-    'n',
-    'o',
-    'p',
-    'q',
-    'r',
-    's',
-    't',
-    'u',
-    'v',
-    'w',
-    'x',
-    'y',
-    'z'
-]
-
 
 people = [
     "I",
@@ -360,7 +331,6 @@ tlds = [
     '.click',
     '.wedding',
     '.sexy',
-    '.xyz',
     '.red',
     '.black',
     '.pics'
@@ -690,7 +660,7 @@ def datetime(past=True):
 
 
 def letter():
-    return random.choice(letters)
+    return random.choice(string.ascii_lowercase)
 
 
 def number():
