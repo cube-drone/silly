@@ -43,10 +43,10 @@ you're probably going to want to look at [faker](https://github.com/joke2k/faker
     # carol-kittenmatt
 
 
-### i want to generate datetime
+### i want to generate dates and times
 
     year, month, day = silly.datetime().year, silly.datetime().month, silly.datetime().day
-    # 1986, 9, 01
+    # 1983, 12, 28
 
 ### generate numbers
 
