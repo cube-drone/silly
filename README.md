@@ -237,4 +237,14 @@ You should do that.  It would be great.
 
 ### i want to contribute to silly development
 
+Fork and clone the repo on github.
+
+To install the development and test requirements, run the following command:
+
+  $> pip install -e .[dev,test]
+
+Once you've made changes that you feel need to be reflected in `silly`, create a pull request.
+
+If your pull request fails any tests in python 2.7 or 3.5, it will be rejected outright.
+
 If your pull request is insufficiently ridiculous it will be rejected outright.
