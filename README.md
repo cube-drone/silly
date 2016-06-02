@@ -201,6 +201,16 @@ welp
     silly.postal_code()
     K7K 3G3
 
+### sometimes your data has tags. let's make tags.
+
+    tags = list(set([silly.noun() for x in range(0,10)]))
+    # ['enormous', 'sly', 'juniper', 'rum', 'touchy', 'marine', 'polka', 'olive', 'sexy', 'sluggish']
+
+#### why is that wrapped in `list()` and `set()`
+
+That's a sneaky way to eliminate duplicates.
+
+
 ### that's it. that's all the things.
 
 YES. Now it is time for me to use your software.
