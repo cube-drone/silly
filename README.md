@@ -1,7 +1,7 @@
 # silly
 A python library for producing fanciful test data.
 
-## what for?
+## hat for?
 
 Sometimes I need more test data than just "Testy Testerson" at "123 Fake St."
 
