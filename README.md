@@ -7,14 +7,14 @@ Sometimes I need more test data than just "Testy Testerson" at "123 Fake St."
 
 `silly` can be used to generate data for things, names, dates, addresses, text...
 
-## I want advanced features... Your data is not very professional looking...
+## I want advanced features OR this data is not very professional looking!
 
 Silly is designed to be quick, funny, and dumb.
 
 If you want localization, customization, and data that doesn't contain the word "poopbutt",
 you're probably going to want to look at [faker](https://github.com/joke2k/faker) instead.
 
-##  Installation
+## Installation
 
     pip install silly
 
@@ -95,7 +95,7 @@ Damn.
     #silly.a_thing()
     # ninety jeans
 
-### ...or lots of Things
+### ...or Lots of Things
 
     silly.things()
     # a bunch of hats, a tub of hams, and ninety jeans
@@ -110,7 +110,7 @@ Damn.
     silly.phone_number()
     # 555-6868
 
-### Generate an Inmage
+### Generate an Image
 
     silly.image()
     # http://dummyimage.com/800x600/292929/e3e3e3&text=mighty poop
@@ -145,7 +145,7 @@ Damn.
     # is the best company in Coasttown. Your mom can't wait to punch
     # one hundred and thirty-seven brown socks in Jerkhall....
 
-### Generate some Markdown
+### Generate Some Markdown
 
     silly.markdown()
     # ## The World Needs A Wad Of Pencils, Badly.
@@ -193,7 +193,7 @@ Welp.
     silly.company(capitalize=True)
     # Olivesoft
 
-### Generate Whole Addresses (all fictional of course)
+### Generate Whole Addresses (all fictional, of course)
 
     silly.address(capitalize=True)
     # Thirty-One West Key Block
@@ -229,17 +229,17 @@ like `silly.direction()` or `silly.city_suffix()` but I didn't think that they
 
 You do.
 
-#### I want to Write a Script to use it With the 'say' Command on Mac
+#### I Want to Write a Script to Use `silly` With the 'say' Command on Mac
 
 You should do that.  It would be great.
 
-### I want to Contribute to Silly Development
+### I Want to Contribute to Silly Development
 
 Fork and clone the repo on github.
 
 To install the development and test requirements, run the following command:
 
-  $> pip install -e .[dev,test]
+    $> pip install -e .[dev,test]
 
 Once you've made changes that you feel need to be reflected in `silly`, create a pull request.
 
