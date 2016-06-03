@@ -22,7 +22,7 @@ setup(
     # Versions should comply with PEP440.  For a discussion on single-sourcing
     # the version across setup.py and the project code, see
     # https://packaging.python.org/en/latest/single_source_version.html
-    version='0.0.2',
+    version='1.1.0',
 
     description='A test data generator that generates stupid names. Like faker, but... silly',
     long_description=long_description,
@@ -85,7 +85,7 @@ setup(
     # for example:
     # $ pip install -e .[dev,test]
     extras_require={
-        'dev': ['invoke'],
+        'dev': ['invoke', 'setuptools', 'wheel', 'twine'],
         'test': ['nose'],
     },
 )
