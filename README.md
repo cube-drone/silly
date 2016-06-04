@@ -171,18 +171,14 @@ It generates markdown that looks like this:
 > Chloe Shelfgroup will grab one hundred and twenty-six collapsible sausages.
 > Your mom will spin a blanket.
 
-### Genders?
+### Generate a Gender
 
     silly.gender()
     # Awesome
     silly.gender()
-    # Awesome
+    # Multitudes
     silly.gender()
-    # Awesome
-
-That's the only response it gives.
-
-Welp.
+    # Nil
 
 ### Generate a Company
 
