@@ -14,12 +14,12 @@ Silly is designed to be quick, funny, and dumb.
 If you want localization, customization, and data that doesn't contain the word "poopbutt",
 you're probably going to want to look at [faker](https://github.com/joke2k/faker) instead.
 
-## How I install?
+## How do I install silly?
 
     pip install silly
 
 
-## How I use?
+## How I use silly?
 
 ### First bring it in.
 
