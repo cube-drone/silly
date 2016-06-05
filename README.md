@@ -1,31 +1,31 @@
 # silly
 A python library for producing fanciful test data.
 
-## hat for?
+## What for?
 
 Sometimes I need more test data than just "Testy Testerson" at "123 Fake St."
 
 `silly` can be used to generate data for things. Names. Datetimes. Addresses. Text.
 
-## i want advanced features or your data is not very professional looking
+## I want advanced features or your data is not very professional looking.
 
 Silly is designed to be quick, funny, and dumb.
 
 If you want localization, customization, and data that doesn't contain the word "poopbutt",
 you're probably going to want to look at [faker](https://github.com/joke2k/faker) instead.
 
-## how I install?
+## How I install?
 
     pip install silly
 
 
-## how I use?
+## How I use?
 
-### first bring it in
+### First bring it in.
 
     import silly
 
-### generate contact info
+### Generate contact info.
 
     name = silly.name()
     print("my name is {}".format(name))
@@ -35,7 +35,7 @@ you're probably going to want to look at [faker](https://github.com/joke2k/faker
     # you should not contact me at buttpike@chump-lol.xyz
 
 
-### tell me about capitalization & slugification
+### Tell me about capitalization & slugification.
 
     # this works on everything that it would make sense for it to work on
     #   for everything else it should fail silently
@@ -47,12 +47,12 @@ you're probably going to want to look at [faker](https://github.com/joke2k/faker
     # carol-kittenmatt
 
 
-### i want to generate dates and times
+### I want to generate dates and times!
 
     year, month, day = silly.datetime().year, silly.datetime().month, silly.datetime().day
     # 1983, 12, 28
 
-### i want to generate numbers
+### I want to generate numbers!
 
     number = silly.number()
     print(number)
@@ -61,7 +61,7 @@ you're probably going to want to look at [faker](https://github.com/joke2k/faker
     print(number_in_words)
     # Eighty Eight
 
-### i want to generate words
+### I want to generate words!
 
     silly.noun()
     # arm
@@ -72,7 +72,7 @@ you're probably going to want to look at [faker](https://github.com/joke2k/faker
     silly.plural()
     # kittens
 
-### i want to generate a past participle
+### I want to generate a past participle!
 
     silly.past_participle()
     # Traceback (most recent call last):
@@ -81,7 +81,7 @@ you're probably going to want to look at [faker](https://github.com/joke2k/faker
 
 Damn.
 
-### how about i just generate a thing
+### How about I just generate a thing...
 
     silly.thing()
     # bunch of hats
@@ -97,22 +97,22 @@ Damn.
     #silly.a_thing()
     # ninety jeans
 
-### or a whole bunch of things
+### Or a whole bunch of things...
 
     silly.things()
     # a bunch of hats, a tub of hams, and ninety jeans
 
-### i need a web domain
+### I need a web domain...
 
     silly.domain()
     # pants.xyz
 
-### i need a phone number for some reason
+### I need a phone number for some reason...
 
     silly.phone_number()
     # 555-6868
 
-### how about an image?
+### How about an image?
 
     silly.image()
     # http://dummyimage.com/800x600/292929/e3e3e3&text=mighty poop
@@ -128,7 +128,7 @@ Damn.
     silly.sentence()
     # Your dad will head to Integrated Harvest And Secret to buy a shell boat.
 
-### or a paragraph!
+### Or a paragraph!
 
     silly.paragraph()
     # Youssef Chiffon needs a cluster of white dances, badly.
@@ -147,7 +147,7 @@ Damn.
     # is the best company in Coasttown. Your mom can't wait to punch
     # one hundred and thirty-seven brown socks in Jerkhall....
 
-### sometimes I need some markdown!
+### Sometimes I need some markdown!
 
     silly.markdown()
     # ## The World Needs A Wad Of Pencils, Badly.
@@ -173,7 +173,7 @@ It generates markdown that looks like this:
 > Chloe Shelfgroup will grab one hundred and twenty-six collapsible sausages.
 > Your mom will spin a blanket.
 
-### what about gender?
+### What about gender?
 
     silly.gender()
     # Awesome
@@ -186,7 +186,7 @@ That's the only response it gives.
 
 Welp.
 
-### maybe I need a company for something?
+### Maybe I need a company for something?
 
     silly.company(capitalize=True)
     # Beefstapler Studios
@@ -212,30 +212,30 @@ Welp.
     silly.postal_code()
     K7K 3G3
 
-### sometimes my data has tags. let's make tags.
+### Sometimes my data has tags. Let's make tags.
 
     tags = list(set([silly.adjective() for x in range(0,10)]))
     # ['enormous', 'sly', 'juniper', 'rum', 'touchy', 'marine', 'polka', 'olive', 'sexy', 'sluggish']
 
-#### why is that wrapped in `list()` and `set()`?
+#### Why is that wrapped in `list()` and `set()`?
 
 That's a sneaky way to eliminate duplicates.
 
-### is that it? is that all of the silly things?
+### Is that it? Are those all of the silly things?
 
 YES. Well, there are some silly things that aren't totally covered in the docs,
 like `silly.direction()` or `silly.city_suffix()` but I didn't think that they
  would be that useful.
 
-### that's right. i will do it.
+### That's right. I will do it.
 
 You do.
 
-#### i want to write a script to use it with the 'say' command on mac
+#### I want to write a script to use it with the 'say' command on mac
 
-You should do that.  It would be great.
+You should do that.  It would be great. Soon™
 
-### i want to contribute to silly development
+### I want to contribute to silly development
 
 Fork and clone the repo on github.
 
