@@ -49,6 +49,26 @@ people = [
     "Customs & Immigration"
 ]
 
+genders = [
+    'Awesome',
+    'Bodacious',
+    'Divine',
+    'Exquisite',
+    'Fabulous',
+    'Grand',
+    'Inquisitive',
+    'Multitudes',
+    'Nil',
+    'Oblique',
+    'Questioning',
+    'Righteous',
+    'Singular',
+    'Tubular',
+    'Universal',
+    'Vexing',
+    'Wide',
+    'Yes',
+]
 
 titles = [
     'captain',
@@ -1290,7 +1310,17 @@ def markdown(random=random, length=10, *args, **kwargs):
 @slugify_argument
 @capitalize_argument
 def gender(random=random, *args, **kwargs):
-    return "Awesome"
+    """
+    Return a gender!
+
+    >>> mock_random.seed(0)
+    >>> gender(random=mock_random)
+    'Awesome'
+    >>> gender(random=mock_random)
+    'Bodacious'
+
+    """
+    return random.choice(genders)
 
 
 @slugify_argument
