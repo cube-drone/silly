@@ -1,5 +1,6 @@
 import datetime as _datetime
 import os
+import re
 import random
 import string
 
@@ -15,20 +16,17 @@ inflectify = inflect.engine()
 def _slugify(string):
     """
     This is not as good as a proper slugification function, but the input space is limited
-
     >>> _slugify("beets")
     'beets'
     >>> _slugify("Toaster Strudel")
     'toaster-strudel'
-
-
     Here's why: It handles very little. It doesn't handle esoteric whitespace or symbols:
-
     >>> _slugify("Hat\\nBasket- of justice and some @#*(! symbols")
     'hat-basket--of-justice-and-some-@#*(!-symbols'
-
     """
-    return string.replace(" ", "-").replace("\n", "-").replace(".", "").replace(",", "").lower()
+    words = re.split(r'[\W]', string)
+    clean_words = [w for w in words if w != '']
+    return '-'.join(clean_words).lower()
 
 
 people = [
