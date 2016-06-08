@@ -16,13 +16,18 @@ inflectify = inflect.engine()
 def _slugify(string):
     """
     This is not as good as a proper slugification function, but the input space is limited
+
     >>> _slugify("beets")
     'beets'
     >>> _slugify("Toaster Strudel")
     'toaster-strudel'
+
+
     Here's why: It handles very little. It doesn't handle esoteric whitespace or symbols:
+
     >>> _slugify("Hat\\nBasket- of justice and some @#*(! symbols")
-    'hat-basket--of-justice-and-some-@#*(!-symbols'
+    'hat-basket-of-justice-and-some-symbols'
+
     """
     words = re.split(r'[\W]', string)
     clean_words = [w for w in words if w != '']
@@ -1149,7 +1154,7 @@ def email(random=random, *args, **kwargs):
     >>> email(random=mock_random)
     'onion@bag-of-heroic-chimps.sexy'
     >>> email(random=mock_random)
-    'agatha-incrediblebritches+spam@amazingbritches.click'
+    'agatha-incrediblebritches-spam@amazingbritches.click'
     >>> email(random=mock_random, name="charles")
     'charles@secret.xyz'
 
