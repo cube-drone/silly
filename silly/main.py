@@ -1,5 +1,6 @@
 import datetime as _datetime
 import os
+import re
 import random
 import string
 
@@ -25,10 +26,12 @@ def _slugify(string):
     Here's why: It handles very little. It doesn't handle esoteric whitespace or symbols:
 
     >>> _slugify("Hat\\nBasket- of justice and some @#*(! symbols")
-    'hat-basket--of-justice-and-some-@#*(!-symbols'
+    'hat-basket-of-justice-and-some-symbols'
 
     """
-    return string.replace(" ", "-").replace("\n", "-").replace(".", "").replace(",", "").lower()
+    words = re.split(r'[\W]', string)
+    clean_words = [w for w in words if w != '']
+    return '-'.join(clean_words).lower()
 
 
 people = [
@@ -1151,7 +1154,7 @@ def email(random=random, *args, **kwargs):
     >>> email(random=mock_random)
     'onion@bag-of-heroic-chimps.sexy'
     >>> email(random=mock_random)
-    'agatha-incrediblebritches+spam@amazingbritches.click'
+    'agatha-incrediblebritches-spam@amazingbritches.click'
     >>> email(random=mock_random, name="charles")
     'charles@secret.xyz'
 
