@@ -66,7 +66,7 @@ you're probably going to want to look at [faker](https://github.com/joke2k/faker
     silly.verb()
     # jump
     silly.adjective()
-    # hide
+    # musky
     silly.plural()
     # kittens
 
