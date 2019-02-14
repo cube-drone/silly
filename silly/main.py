@@ -492,6 +492,8 @@ nouns = [
     'jerk',
     'foot',
     'spud',
+    'clutter',
+    'buck',
 ]
 
 verbs = [
@@ -642,6 +644,7 @@ firstnames = [
     'ronald',
     'miloslav',
     'walter',
+    'yuri',
 ]
 
 
