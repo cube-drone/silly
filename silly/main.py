@@ -1,5 +1,6 @@
 import datetime as _datetime
 import os
+import re
 import random
 import string
 
@@ -25,10 +26,12 @@ def _slugify(string):
     Here's why: It handles very little. It doesn't handle esoteric whitespace or symbols:
 
     >>> _slugify("Hat\\nBasket- of justice and some @#*(! symbols")
-    'hat-basket--of-justice-and-some-@#*(!-symbols'
+    'hat-basket-of-justice-and-some-symbols'
 
     """
-    return string.replace(" ", "-").replace("\n", "-").replace(".", "").replace(",", "").lower()
+    words = re.split(r'[\W]', string)
+    clean_words = [w for w in words if w != '']
+    return '-'.join(clean_words).lower()
 
 
 people = [
@@ -49,6 +52,26 @@ people = [
     "Customs & Immigration"
 ]
 
+genders = [
+    'Awesome',
+    'Bodacious',
+    'Divine',
+    'Exquisite',
+    'Fabulous',
+    'Grand',
+    'Inquisitive',
+    'Multitudes',
+    'Nil',
+    'Oblique',
+    'Questioning',
+    'Righteous',
+    'Singular',
+    'Tubular',
+    'Universal',
+    'Vexing',
+    'Wide',
+    'Yes',
+]
 
 titles = [
     'captain',
@@ -469,6 +492,8 @@ nouns = [
     'jerk',
     'foot',
     'spud',
+    'clutter',
+    'buck',
 ]
 
 verbs = [
@@ -619,6 +644,7 @@ firstnames = [
     'ronald',
     'miloslav',
     'walter',
+    'yuri',
 ]
 
 
@@ -1129,7 +1155,7 @@ def email(random=random, *args, **kwargs):
     >>> email(random=mock_random)
     'onion@bag-of-heroic-chimps.sexy'
     >>> email(random=mock_random)
-    'agatha-incrediblebritches+spam@amazingbritches.click'
+    'agatha-incrediblebritches-spam@amazingbritches.click'
     >>> email(random=mock_random, name="charles")
     'charles@secret.xyz'
 
@@ -1288,7 +1314,17 @@ def markdown(random=random, length=10, *args, **kwargs):
 @slugify_argument
 @capitalize_argument
 def gender(random=random, *args, **kwargs):
-    return "Awesome"
+    """
+    Return a gender!
+
+    >>> mock_random.seed(0)
+    >>> gender(random=mock_random)
+    'Awesome'
+    >>> gender(random=mock_random)
+    'Bodacious'
+
+    """
+    return random.choice(genders)
 
 
 @slugify_argument

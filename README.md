@@ -66,7 +66,7 @@ you're probably going to want to look at [faker](https://github.com/joke2k/faker
     silly.verb()
     # jump
     silly.adjective()
-    # hide
+    # musky
     silly.plural()
     # kittens
 
@@ -171,18 +171,14 @@ It generates markdown that looks like this:
 > Chloe Shelfgroup will grab one hundred and twenty-six collapsible sausages.
 > Your mom will spin a blanket.
 
-### Genders?
+### Generate a Gender
 
     silly.gender()
     # Awesome
     silly.gender()
-    # Awesome
+    # Multitudes
     silly.gender()
-    # Awesome
-
-That's the only response it gives.
-
-Welp.
+    # Nil
 
 ### Generate a Company
 
