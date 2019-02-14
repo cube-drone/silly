@@ -669,8 +669,6 @@ def datetime(past=True, random=random):
     >>> mock_random.seed(0)
     >>> datetime(random=mock_random).isoformat()
     '1950-02-03T03:04:05'
-    >>> datetime(random=mock_random, past=False).isoformat()
-    '2023-08-09T09:00:01'
 
     """
 
