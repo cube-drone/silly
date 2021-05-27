@@ -349,6 +349,8 @@ directions = [
     "north",
     "south",
     "central",
+    "turnwise",
+    "widdershins",
 ]
 
 city_suffixes = [
